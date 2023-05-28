@@ -10,6 +10,6 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.ADMIN_REPO_TOKEN }}
           reviewers: |
-            /coders
+            MC-Team-17/coders
           addAssignees: false
           numberOfReviewers: 2
