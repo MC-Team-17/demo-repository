@@ -11,6 +11,6 @@ jobs:
             - name: 'Auto-assign PR'
               uses: pozil/auto-assign-issue@v1
               with:
-                  repo-token: ${{ secrets.GITHUB_TOKEN }}
-                  teams: MC-Team-17/coders
+                  repo-token: ${{ secrets.ADMIN_REPO_TOKEN }}
+                  teams: coders
                   numOfAssignee: 2
