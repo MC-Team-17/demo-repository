@@ -11,6 +11,6 @@ jobs:
         uses: dc-ag/auto-assign-reviewers-from-team@v1.2.2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          admin-repo-token: ${{ secrets.GITHUB_ADMIN_REPO_TOKEN }} # GitHub Personal Access Token that has 'repo' rights
+          admin-repo-token: ${{ secrets.ADMIN_REPO_TOKEN }} # GitHub Personal Access Token that has 'repo' rights
           team: "coders" # The team name
           use-team-reviewer-settings: true # Set to true if you want to use the team's reviewer settings instead of a specific amount
