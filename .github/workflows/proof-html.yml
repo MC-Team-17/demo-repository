@@ -1,15 +1,18 @@
-name: Add Reviewers
+name: "Assign Reviewers"
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, ready_for_review, reopened]
+
 jobs:
-  assign:
+  assign-reviewers:
     runs-on: ubuntu-latest
     permissions:
       issues: write
       pull-requests: write
     steps:
-      - uses: delivery-much/actions-assigner@v1
+      - name: "Assign reviewers from team"
+        uses: dc-ag/auto-assign-reviewers-from-team@v1.2.2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          team-reviewers: coders
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          team: "coders" # The team name
+          use-team-reviewer-settings: true # Set to true if you want to use the team's reviewer settings instead of a specific amount
