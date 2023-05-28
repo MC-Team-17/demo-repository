@@ -12,3 +12,4 @@ jobs:
           reviewers: |
             /coders
           addAssignees: false
+          numberOfReviewers: 2
