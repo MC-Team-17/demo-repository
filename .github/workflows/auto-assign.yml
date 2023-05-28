@@ -1,19 +1,11 @@
 name: Auto Assign
 on:
-  issues:
-    types: [opened]
   pull_request:
-    types: [opened]
+    types:
+      - closed
 jobs:
-  run:
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
-    steps:
-    - name: 'Auto-assign issue'
-      uses: pozil/auto-assign-issue@v1
-      with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          assignees: yukim17, slavny11, palant-dev
-          numOfAssignee: 1
+    if_merged:
+        if: github.event.pull_request.merged == true
+        runs-on: ubuntu-latest
+        steps:
+        - uses: toshimaru/auto-author-assign@v1.6.2
