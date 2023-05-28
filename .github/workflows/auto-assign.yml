@@ -1,11 +1,9 @@
 name: Auto Assign
 on:
-  pull_request:
-    types:
-      - closed
+    pull_request:
+    types: [opened]
 jobs:
-    if_merged:
-        if: github.event.pull_request.merged == true
+    run:
         runs-on: ubuntu-latest
         steps:
         - uses: toshimaru/auto-author-assign@v1.6.2
