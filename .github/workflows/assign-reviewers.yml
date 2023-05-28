@@ -7,12 +7,10 @@ jobs:
   assign-reviewers:
     runs-on: ubuntu-latest
     steps:
-      - name: "Assign Team and Persons"
-        uses: rowi1de/auto-assign-review-teams@v1.1.3
+      - name: "Assign reviewers from team"
+        uses: dc-ag/auto-assign-reviewers-from-team@v1.2.2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          org: "MC-Team-17"
-          teams: "coders" # only works for GitHub Organisation/Teams
-          include-draft: false # Draft PRs will be skipped (default: false)
-          skip-with-manual-reviewers: 2 # Skip this action, if the number of reviwers was already assigned (default: 0)
-          pick-one-from-persons-or-team: false # Will pick out one reviewer from persons and/or the first GitHub team and "org" set (default: false)
+          admin-repo-token: ${{ secrets.GITHUB_ADMIN_REPO_TOKEN }} # GitHub Personal Access Token that has 'repo' rights
+          team: "coders" # The team name
+          use-team-reviewer-settings: true # Set to true if you want to use the team's reviewer settings instead of a specific amount
