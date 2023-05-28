@@ -1,11 +1,16 @@
-name: Proof HTML
+name: Add Reviewers
+
 on:
-  push:
-  workflow_dispatch:
+  pull_request:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: anishathalye/proof-html@v1.1.0
-        with:
-          directory: ./
+    - name: Add Reviewers
+      uses: madrapps/add-reviewers@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        reviewers: coders
+        re-request-when-approved: true
+        re-request-when-changes-requested: true
