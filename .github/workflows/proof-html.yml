@@ -1,16 +1,12 @@
 name: Add Reviewers
-
 on:
   pull_request:
-
+    types: [opened, reopened]
 jobs:
-  build:
+  assign:
     runs-on: ubuntu-latest
     steps:
-    - name: Add Reviewers
-      uses: madrapps/add-reviewers@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        reviewers: yukim17
-        re-request-when-approved: true
-        re-request-when-changes-requested: true
+      - uses: delivery-much/actions-assigner@v1
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          team-reviewers: coders
