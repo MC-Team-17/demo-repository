@@ -12,5 +12,5 @@ jobs:
               uses: pozil/auto-assign-issue@v1
               with:
                   repo-token: ${{ secrets.GITHUB_TOKEN }}
-                  teams: coders
+                  teams: MC-Team-17/coders
                   numOfAssignee: 2
